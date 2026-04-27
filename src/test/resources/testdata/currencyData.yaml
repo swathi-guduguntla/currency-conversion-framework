@@ -1,0 +1,7 @@
+- from: USD
+  to: EUR
+  amount: 100
+
+- from: GBP
+  to: INR
+  amount: 50

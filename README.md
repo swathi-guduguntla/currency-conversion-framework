@@ -39,3 +39,8 @@ Ensure you have the following installed:
 # Run tests
 ### Using maven
 `mvn clean test`
+or
+`mvn test -Dcucumber.options="--tags @smoke"`
+
+### Using TestRunner
+`Right-click TestRunner → Run`
