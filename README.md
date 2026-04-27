@@ -30,7 +30,7 @@ Ensure you have the following installed:
 
 # Setup
 ## Cloning
-`$ git clone
+`$ git clone "https://github.com/swathi-guduguntla/currency-conversion-framework.git"
 
 `$ cd currency-conversion-framework`
 ## Install dependencies 
