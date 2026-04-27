@@ -39,3 +39,4 @@ Feature: Currency Conversion Validation
       | IV02 | USD  | EUR | -100   | INVALID_AMOUNT   |
       | IV03 | USD  | EUR | 0      | INVALID_AMOUNT   |
       | IV04 | USD  | ABC | 100    | INVALID_CURRENCY |
+      | IV05 | USD  | USD | 100    | SAME_CURRENCY    |

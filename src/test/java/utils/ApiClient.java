@@ -2,6 +2,7 @@ package utils;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import constants.ErrorMessages;
 
 public class ApiClient {
     public static double getRate(String from, String to) {
@@ -13,15 +14,14 @@ public class ApiClient {
 
         String result = response.jsonPath().getString("result");
         if (!"success".equalsIgnoreCase(result)) {
-            throw new RuntimeException(
-                    "API failed for currency pair: " + from + " -> " + to +
-                            " | Response: " + response.asString()
-            );
+            throw new RuntimeException(ErrorMessages.INVALID_CURRENCY);
+        }
+        if (response.jsonPath().get("rates." + to) == null) {
+            throw new RuntimeException(ErrorMessages.INVALID_CURRENCY);
         }
         Double rate = response.jsonPath().getDouble("rates." + to);
-
         if (rate == null) {
-            throw new RuntimeException("Rate not found for: " + to);
+            throw new RuntimeException(ErrorMessages.INVALID_CURRENCY);
         }
         return rate;
     }
